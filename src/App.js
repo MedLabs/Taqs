@@ -32,7 +32,18 @@ function App() {
 
     return `${day} ${date} ${month} ${year}`
   }
-
+const weatherType = (w) => {
+  switch (w){
+    case "Clouds":
+      return "Nuageux";
+    case "Clear":
+      return "Clair";
+    case "Rainy":
+      return "Pluvieux";
+    default:
+    return w;
+  }
+}
 
   return (
     <div className="App">
@@ -65,7 +76,8 @@ function App() {
             </div>
 
             <div className="weather">
-            {city ? `${city.weather[0].main}` : "No City"}
+            {city ? `${weatherType(city.weather[0].main)}` : "No City"}
+            
             </div>
           </div>
         </div>
